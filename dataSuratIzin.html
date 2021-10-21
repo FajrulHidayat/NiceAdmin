@@ -426,7 +426,7 @@
       let tbody="";
 			$.ajax({
 				type : "GET",
-				url : "http://localhost:9090/suratIzin",
+				url : `${baseURL}/suratIzin`,
 				success : function(html){
           console.log(html.result);
           
@@ -452,6 +452,7 @@
 			})
 		}
   </script>
+  <script type="text/javascript" src="js/baseURL.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <!-- nicescroll -->

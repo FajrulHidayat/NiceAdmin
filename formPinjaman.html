@@ -484,7 +484,7 @@
       if (urlParams.has('id')) {
         $.ajax({
             type : "GET",
-            url : `http://localhost:9090/pinjaman/${urlParams.get('id')}`,
+            url : `${baseURL}/pinjaman/${urlParams.get('id')}`,
             success : function(html){
               console.log(html.result[0]);
               document.getElementById("nik").value=html.result[0].nik
@@ -510,7 +510,7 @@
       // console.log(urlParams.get('id'));
         $.ajax({
           type : "PUT",
-          url : `http://localhost:9090/pinjaman/${urlParams.get('id')}`,
+          url : `${baseURL}/pinjaman/${urlParams.get('id')}`,
           data:{lulus:lulus},
           success : function(html){
             console.log(html.result);
@@ -521,7 +521,7 @@
     }
 
   </script>
-
+  <script type="text/javascript" src="js/baseURL.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <!-- nice scroll -->

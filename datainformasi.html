@@ -442,7 +442,7 @@
       let tbodyPinjaman="";
 			$.ajax({
 				type : "GET",
-				url : "http://localhost:9090/informasi/suratIzin",
+				url : `${baseURL}/informasi/suratIzin`,
 				success : function(html){
           console.log(html.result);
           
@@ -462,7 +462,7 @@
 			})
 			$.ajax({
 				type : "GET",
-				url : "http://localhost:9090/informasi/pinjaman",
+				url : `${baseURL}/informasi/pinjaman`,
 				success : function(html){          
           html.result.map((data,index)=>{
             tbodyPinjaman+=`<tr>
@@ -485,13 +485,14 @@
       console.log(id);
       $.ajax({
 				type : "delete",
-				url : `http://localhost:9090/informasi/${id}`,
+				url : `${baseURL}/informasi/${id}`,
 				success : function(html){          
           window.location.replace("datainformasi.html");
 				}
 			}) 
     }
   </script>
+  <script type="text/javascript" src="js/baseURL.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <!-- nicescroll -->

@@ -429,7 +429,7 @@
       let tbody="";
 			$.ajax({
 				type : "GET",
-				url : "http://localhost:9090/pinjaman",
+				url : `${baseURL}/pinjaman`,
 				success : function(html){
           console.log(html.result);
           
@@ -465,6 +465,7 @@
         return 'Rp. '+rupiah.split('',rupiah.length-1).reverse().join('');
       }
   </script>
+  <script type="text/javascript" src="js/baseURL.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <!-- nicescroll -->

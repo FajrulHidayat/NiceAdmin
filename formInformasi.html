@@ -446,7 +446,7 @@
       if (urlParams.has('id')) {
         $.ajax({
             type : "GET",
-            url : `http://localhost:9090/informasi/${urlParams.get('id')}`,
+            url : `${baseURL}/informasi/${urlParams.get('id')}`,
             success : function(html){
               console.log(html.result[0].title);
               document.getElementById("title").value=html.result[0].title
@@ -471,7 +471,7 @@
       if (urlParams.has('id')) {
         $.ajax({
           type : "PUT",
-          url : `http://localhost:9090/informasi/${urlParams.get('id')}`,
+          url : `${baseURL}/informasi/${urlParams.get('id')}`,
           data:{title:title,value:value,tipe:tipe},
           success : function(html){
             console.log(html.result);
@@ -481,7 +481,7 @@
       }else{
         $.ajax({
           type : "POST",
-          url : `http://localhost:9090/informasi`,
+          url : `${baseURL}/informasi`,
           data:{title:title,value:value,tipe:tipe},
           success : function(html){
             console.log(html.result);
@@ -492,7 +492,7 @@
     }
 
   </script>
-
+  <script type="text/javascript" src="js/baseURL.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <!-- nice scroll -->

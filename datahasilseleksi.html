@@ -472,7 +472,7 @@
       console.log(formData);
       $.ajax({
 				type : "PUT",
-				url : "http://localhost:9090/survei",
+				url : `${baseURL}/survei`,
         data: {formData},
 				success : function(html){
           console.log(html);
@@ -491,7 +491,7 @@
       let hasilSurvei
       $.ajax({
 				type : "GET",
-				url : "http://localhost:9090/kriteria",
+				url : `${baseURL}/kriteria`,
 				success : function(html){
           thead+="<tr><th>Nama Kelompok</th>"
           html.result.map((data,index)=>{
@@ -506,7 +506,7 @@
 			})
       $.ajax({
 				type : "GET",
-				url : "http://localhost:9090/alternatif",
+				url : `${baseURL}/alternatif`,
 				success : function(html){
           html.result.map((data,index)=>{
             kd_alternatif.push(data.kode_alternatif)
@@ -516,7 +516,7 @@
       // console.log(kd_alternatif);
 			$.ajax({
 				type : "GET",
-				url : "http://localhost:9090/survei",
+				url : `${baseUrl}/survei`,
 				success : function(html){
           hasilSurvei=html.result
           // for (let alternatif = 0; alternatif < kd_alternatif.length; alternatif++) {
@@ -533,7 +533,7 @@
 			})
 			$.ajax({
 				type : "GET",
-				url : "http://localhost:9090/topsis",
+				url : `${baseUrl}/topsis`,
 				success : function(html){
           console.log(html.result[2].max);
           //bobot hasil surbei
@@ -587,6 +587,7 @@
 			})
 		}
   </script>
+  <script type="text/javascript" src="js/baseURL.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <!-- nicescroll -->

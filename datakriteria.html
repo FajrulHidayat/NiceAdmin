@@ -424,7 +424,7 @@
       let tbody="";
 			$.ajax({
 				type : "GET",
-				url : "http://localhost:9090/kriteria",
+				url : `${baseURL}/kriteria`,
 				success : function(html){
           console.log(html.result);
           
@@ -450,13 +450,14 @@
       console.log(id);
       $.ajax({
 				type : "DELETE",
-				url : `http://localhost:9090/kriteria/${id}`,
+				url : `${baseURL}/kriteria/${id}`,
 				success : function(html){          
           window.location.replace("datakriteria.html");
 				}
 			}) 
     }
   </script>
+  <script type="text/javascript" src="js/baseURL.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <!-- nicescroll -->

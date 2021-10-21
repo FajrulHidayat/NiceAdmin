@@ -443,7 +443,7 @@
       if (urlParams.has('id')) {
         $.ajax({
             type : "GET",
-            url : `http://localhost:9090/kriteria/${urlParams.get('id')}`,
+            url : `${baseURL}/kriteria/${urlParams.get('id')}`,
             success : function(html){
               console.log(html.result.kode_kriteria);
               document.getElementById("kode").value=html.result.kode_kriteria
@@ -463,7 +463,7 @@
       if (urlParams.has('id')) {
         $.ajax({
           type : "PUT",
-          url : `http://localhost:9090/kriteria/${urlParams.get('id')}`,
+          url : `${baseURL}/kriteria/${urlParams.get('id')}`,
           data:{kode_kriteria:kode,nama_kriteria:nama,bobot:bobot},
           success : function(html){
             console.log(html.result);
@@ -473,7 +473,7 @@
       }else{
         $.ajax({
           type : "POST",
-          url : `http://localhost:9090/kriteria`,
+          url : `${baseURL}/kriteria`,
           data:{kode_kriteria:kode,nama_kriteria:nama,bobot:bobot},
           success : function(html){
             console.log(html.result);
@@ -485,7 +485,7 @@
     
 
   </script>
-
+  <script type="text/javascript" src="js/baseURL.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <!-- nice scroll -->

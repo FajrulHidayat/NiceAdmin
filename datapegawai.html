@@ -425,7 +425,7 @@
       let tbody="";
 			$.ajax({
 				type : "GET",
-				url : "http://localhost:9090/pegawai",
+				url : `${baseUrl}/pegawai`,
 				success : function(html){
           // console.log(html.result);
           
@@ -452,6 +452,7 @@
 		}
    
   </script>
+  <script type="text/javascript" src="js/baseURL.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <!-- nicescroll -->

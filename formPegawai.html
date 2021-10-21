@@ -459,7 +459,7 @@
       if (urlParams.has('id')) {
         $.ajax({
             type : "GET",
-            url : `http://localhost:9090/pegawai/${urlParams.get('id')}`,
+            url : `${baseURL}/pegawai/${urlParams.get('id')}`,
             success : function(html){
               console.log(html);
               document.getElementById("nip").value=html.result[0].nip
@@ -514,7 +514,7 @@
       if (urlParams.has('id')) {
         $.ajax({
           type : "PUT",
-          url : `http://localhost:9090/pegawai/${urlParams.get('id')}`,
+          url : `${baseURL}/pegawai/${urlParams.get('id')}`,
           enctype: 'multipart/form-data',
           processData: false,  // Important!
           contentType: false,
@@ -528,7 +528,7 @@
       }else{
         $.ajax({
           type : "POST",
-          url : `http://localhost:9090/pegawai`,
+          url : `${baseURL}/pegawai`,
           enctype: 'multipart/form-data',
           processData: false,  // Important!
           contentType: false,
@@ -543,7 +543,7 @@
     }
 
   </script>
-
+  <script type="text/javascript" src="js/baseURL.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <!-- nice scroll -->
