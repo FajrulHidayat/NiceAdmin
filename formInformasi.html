@@ -404,7 +404,7 @@
                         <div class="col-lg-6">
                           <select class="form-control" id="tipe" name="tipe"  required>
                             <option value="suratIzin" id="suratIzin">Surat Izin</option>
-                            <option value="informasi" id="informasi">Informasi</option>
+                            <option value="pinjaman" id="pinjaman">Pinjaman</option>
                           </select>
                           <!-- <input class="form-control" id="tipe" name="tipe" minlength="5" type="text" required /> -->
                         </div>
@@ -454,7 +454,7 @@
               if(html.result[0].tipe=="suratIzin"){
                 document.getElementById("suratIzin").selected="selected"
               }else{
-                document.getElementById("informasi").selected="selected"
+                document.getElementById("pinjaman").selected="selected"
               }
               // document.getElementById("tipe").value=html.result[0].tipe
             }

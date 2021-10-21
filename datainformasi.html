@@ -458,12 +458,15 @@
                 </td>
                 </tr>`
             })
+            // console.log(tbodySuratIzin);
 				}
+        
 			})
 			$.ajax({
 				type : "GET",
 				url : `${baseURL}/informasi/pinjaman`,
 				success : function(html){          
+          console.log(html.result);
           html.result.map((data,index)=>{
             tbodyPinjaman+=`<tr>
                 <td>${data.title}</td>
@@ -475,9 +478,12 @@
                     </div>
                 </td>
                 </tr>`
-                $("#tbodySuratIzin").html(tbodySuratIzin);
-            $("#tbodyPinjaman").html(tbodyPinjaman);
+                
             })
+            console.log(tbodyPinjaman);
+            $("#tbodySuratIzin").html(tbodySuratIzin);
+            $("#tbodyPinjaman").html(tbodyPinjaman);
+            
 				}
 			}) 
 		}
@@ -496,7 +502,7 @@
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <!-- nicescroll -->
-  <script src="js/jquery.scrollTo.min.js"></script>
+  <!-- <script src="js/jquery.scrollTo.min.js"></script> -->
   <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
   <!--custome script for all page-->
   <script src="js/scripts.js"></script>
