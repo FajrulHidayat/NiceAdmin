@@ -382,7 +382,7 @@
               </header>
               <div class="panel-body">
                 <div class="form">
-                  <form class="form-validate form-horizontal" id="feedback_form" method="get" action="" onsubmit="onSubmit()">
+                  <!-- <form class="form-validate form-horizontal" id="feedback_form" method="get" action="" onsubmit="onSubmit()"> -->
                     <div class="form-group ">
                       <label for="cname" class="control-label col-lg-2">Kode Kriteria<span class="required">*</span></label>
                       <div class="col-lg-6">
@@ -405,11 +405,11 @@
                    
                     
                       <div class="col-lg-offset-2 col-lg-6">
-                        <button class="btn btn-primary" type="submit">Save</button>
+                        <button class="btn btn-primary" onclick="event.preventDefault(); return onSubmit()">Save</button>
                         <a href="datainformasi.html"><button class="btn btn-default" type="button">Cancel</button></a>
                       </div>
                     </div>
-                  </form>
+                  <!-- </form> -->
                 </div>
               </div>
           </div>
