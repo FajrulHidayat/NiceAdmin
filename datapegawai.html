@@ -437,7 +437,7 @@
                     <td>
                       <div class="btn-group">
                         <a class="btn btn-success" href="formPegawai.html?id=${data.nip}"><i class="icon_check_alt2"></i></a>
-                        <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
+                        <button class="btn btn-danger" onclick="deleteData(${data.nip})"><i class="icon_close_alt2"></i></button>
                       </div>
                     </td>
                   </tr>`
@@ -447,7 +447,21 @@
 				}
 			})
 		}
-   
+    function deleteData(nip) {
+      if(confirm("Hapus Data?")){
+        // let tbody="";
+        $.ajax({
+          type : "DELETE",
+          url : `${baseURL}/pegawai/${nip}`,
+          success : function(html){
+            window.location.replace("datapegawai.html");
+          }
+      })
+      }else{
+
+      }
+      
+    }
   </script>
   <script type="text/javascript" src="js/baseURL.js"></script>
   <script src="js/jquery.js"></script>
