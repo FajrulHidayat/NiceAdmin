@@ -492,19 +492,19 @@
       let jabatan = document.getElementById("jabatan").value
       let pengalaman = document.getElementById("pengalaman").value
       let foto
-      if (document.getElementById("foto").value == "") {
-         foto = document.getElementById("gambar").src
-      }else{
+      // if (document.getElementById("foto").value == "") {
+      //    foto = document.getElementById("gambar").src
+      // }else{
         foto = $('#foto')[0].files[0]
-      }
+      // }
       
       let data = new FormData()
       data.append("nip",nip)
       data.append("nama",nama)
       data.append("jabatan",jabatan)
       data.append("deskripsi",pengalaman)
-      // data.append("foto",foto)
-      console.log($("#feedback_form").serialize()); 
+      data.append("foto",foto)
+      // console.log($("#feedback_form").serialize()); 
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
       // console.log(urlParams.get('id'));
