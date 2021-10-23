@@ -294,7 +294,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="active">
-            <a class="" href="Adminindex.html">
+            <a class="" href="index.html">
                           <i class="icon_house_alt"></i>
                           <span>Beranda</span>
                       </a>
@@ -324,15 +324,12 @@
                       </a>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;" class="">
+            <a href="dataentri.html" class="">
                           <i class="icon_desktop"></i>
                           <span>Data Alternatif</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
+                          
                       </a>
-            <ul class="sub">
-              <li><a class="" href="dataentri.html">Data Entri </a></li>
-              <li><a class="" href="datalulusseleksi.html">Data Lulus Seleksi Berkas</a></li>
-            </ul>
+            
           </li>
 
           <li>
@@ -361,7 +358,7 @@
         </ul>
         <!-- sidebar menu end-->
       </div>
-    </aside> 
+    </aside>
     <!-- sidebar menu end-->
 
     <!--main content start-->
@@ -443,6 +440,13 @@
       let kd_alternatif=[];
       $.ajax({
 				type : "GET",
+				url : `${baseURL}/survei/syncron`,
+				success : function(html){
+         
+				}
+			})
+      $.ajax({
+				type : "GET",
 				url : `${baseURL}/kriteria`,
 				success : function(html){
           thead+="<tr><th>Nama Kelompok</th>"
@@ -456,10 +460,10 @@
 			})
       $.ajax({
 				type : "GET",
-				url : `${baseURL}/alternatif`,
+				url : `${baseURL}/pinjaman/entri`,
 				success : function(html){
           html.result.map((data,index)=>{
-            kd_alternatif.push(data.kode_alternatif)
+            kd_alternatif.push(data.nik)
           })
 				}
 			})
@@ -468,10 +472,13 @@
 				type : "GET",
 				url : `${baseURL}/survei`,
 				success : function(html){
+          console.log(html);
           tbody+="<form id='form'>"
           for (let alternatif = 0; alternatif < kd_alternatif.length; alternatif++) {
               let objs = html.result.filter(o=>o.kode_alternatif===kd_alternatif[alternatif])
-              tbody+=`<tr> <td>${objs[0].tb_alternatif.nama_alternatif}</td>`;
+              console.log(kd_alternatif[alternatif]);
+              console.log(objs);
+              tbody+=`<tr> <td>${objs[0].tb_pinjaman.nama}</td>`;
             for (let kriteria = 0; kriteria < kd_kriteria.length; kriteria++) {
               let obj = objs.find(o=>o.kode_kriteria===kd_kriteria[kriteria])
               tbody+=`<td><input type="number" class="inputnumber" name="${obj.id_hasil_survei}" id="${obj.id_hasil_survei}" data-alternatif="${obj.kode_alternatif}" data-kriteria="${obj.kode_kriteria}" value="${obj.nilai}"></td>`
