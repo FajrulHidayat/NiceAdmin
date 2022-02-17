@@ -489,7 +489,7 @@
 				}
 			})
     }
-    function tampil(){
+    async function tampil(){
       let tbody="";
       let tbodyNilai="";
       let tbodyMatriksKeputusan="";
@@ -525,7 +525,7 @@
 				}
 			})
       // console.log(kd_alternatif);
-			$.ajax({
+			await $.ajax({
 				type : "GET",
 				url : `${baseURL}/survei`,
 				success : function(html){
