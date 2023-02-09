@@ -546,7 +546,7 @@
 				type : "GET",
 				url : `${baseURL}/topsis`,
 				success : function(html){
-          console.log(html.result[2].max);
+          console.log(html);
           //bobot hasil surbei
           for (let alternatif = 0; alternatif < kd_alternatif.length; alternatif++) {
               let objs = hasilSurvei.filter(o=>o.kode_alternatif===kd_alternatif[alternatif])
@@ -586,7 +586,7 @@
           }tbodyPISNIS+="<tr>"
 					$("#tbodyPISNIS").html(tbodyPISNIS);
           //solusi ideal
-          theadSolusiIdeal="<tr><th>Nama Kelompok</th><th>D+</th><th>D-</th><th>Preferensi</th><th>Rank</th></tr>"
+          theadSolusiIdeal="<tr><th>Nama Kelompok</th><th>D+</th><th>D-</th><th>Preferensi</th><th>Rank</th><th>Jenis Usaha</th></tr>"
           $("#theadSolusiIdeal").html(theadSolusiIdeal);
           for (let index = 0; index < kd_alternatif.length; index++) {
             let objs = hasilSurvei.filter(o=>o.kode_alternatif===kd_alternatif[index])
@@ -595,6 +595,7 @@
             tbodySolusiIdeal+=`<td>${html.result[5].dMin[index]}</td>`
             tbodySolusiIdeal+=`<td>${html.result[6].preferensi[index]}</td>`
             tbodySolusiIdeal+=`<td>${html.result[7].ranks[index]}</td>`
+            tbodySolusiIdeal+=`<td>${html.result[8].jenisUsaha[index]}</td>`
             tbodySolusiIdeal+="</tr>"
             console.log(html.result[4].dPlus[index]);
           }
