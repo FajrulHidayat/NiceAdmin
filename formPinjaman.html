@@ -432,9 +432,9 @@
                         </div>
                     </div> 
                     <div class="form-group ">
-                        <label for="cname" class="control-label col-lg-2">Foto <span class="required">*</span></label>
-                        <div class="col-lg-6">
-                          <img id="foto" height="200px">
+                        <label for="cname" class="control-label col-lg-2">File <span class="required">*</span></label>
+                        <div class="col-lg-6" id="files">
+                          
                         </div>
                     </div> 
                     <div class="form-group ">
@@ -479,6 +479,7 @@
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
       if (urlParams.has('id')) {
+        let fileButton=""
         $.ajax({
             type : "GET",
             url : `${baseURL}/pinjaman/${urlParams.get('id')}`,
@@ -492,8 +493,12 @@
               document.getElementById("pendapatan").value=html.result[0].pendapatan
               document.getElementById("kekayaan").value=html.result[0].kekayaan
               document.getElementById("hasil").value=html.result[0].hasil
-              document.getElementById("foto").src=`http://localhost:9090/image/pinjaman/${html.result[0].foto}`
+              // document.getElementById("foto").src=`http://localhost:9090/image/pinjaman/${html.result[0].foto}`
               document.getElementById("lulus").checked=html.result[0].lulus
+              html.result[0].fileArray.forEach((element,index) => {
+                fileButton+=`<a href='${baseURL}/image/pinjaman/${element}'>File ${index+1}</a><br>`
+              });
+              document.getElementById("files").innerHTML=fileButton
               
               // document.getElementById("tipe").value=html.result[0].tipe
             }
